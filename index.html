@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#163b70">
+<title>MPI Matematika X SMK | Konsep Dasar Vektor dan Operasinya</title>
+<style>
+:root{--navy:#163b70;--blue:#2563eb;--teal:#0f766e;--green:#15803d;--orange:#b45309;--ink:#182235;--muted:#5e6a7e;--bg:#f3f6fb;--card:#fff;--line:#dbe3ef;--soft:#edf4ff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.58 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+header{background:linear-gradient(125deg,#163b70,#2563eb);color:white;padding:28px 16px 24px}.wrap{max-width:1150px;margin:auto;padding:0 16px}
+header h1{font-size:clamp(1.6rem,4vw,2.5rem);line-height:1.18;margin:8px 0 12px}header p{max-width:850px;margin:0;color:#e5efff}.tag{display:inline-block;border:1px solid #ffffff66;background:#ffffff1b;border-radius:99px;padding:4px 11px;font-size:.85rem}
+nav{display:flex;flex-wrap:wrap;gap:8px;padding:16px 0 6px}button{font:inherit;cursor:pointer;min-height:44px;border:0;border-radius:11px;padding:10px 14px;font-weight:700}nav button{background:white;color:var(--navy);border:1px solid var(--line)}nav button.active{background:var(--navy);color:white}
+main{padding-bottom:30px}.panel{display:none}.panel.active{display:block}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;margin:12px 0;box-shadow:0 5px 18px #19395f08}
+h2{font-size:1.42rem;line-height:1.3;color:var(--navy);margin:0 0 12px}h3{color:#1f477b;margin:12px 0 6px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.formula{background:var(--soft);border:1px solid #ccdcfa;border-radius:12px;padding:13px 15px;margin:10px 0}.formula strong{color:#163b70}.muted{color:var(--muted);font-size:.93rem}.stat{border:1px solid var(--line);background:#f9fbfe;padding:12px;border-radius:12px;min-width:0}.stat small{display:block;color:var(--muted)}.stat strong{display:block;font-size:1.25rem;color:var(--navy);overflow-wrap:anywhere}
+label{font-weight:650;display:block;margin:10px 0 5px}input[type=number],input[type=text],select{width:100%;border:1px solid #b7c6da;border-radius:10px;padding:11px;font:inherit;background:#fff;color:var(--ink)}input[type=range]{width:100%;accent-color:var(--blue)}
+.btn{background:var(--blue);color:white}.btn.alt{background:#e7eef9;color:var(--navy)}.btn.green{background:var(--green)}.btn.orange{background:var(--orange)}.svgbox{background:#fbfdff;border:1px solid var(--line);border-radius:14px;padding:6px;min-width:0}svg{width:100%;height:auto;display:block}
+.feedback{margin-top:12px;padding:12px;border-radius:11px;font-weight:650}.ok{background:#dcfce7;color:#166534}.bad{background:#fee2e2;color:#991b1b}.info{background:#fff7ed;color:#9a3412}
+.step{display:flex;gap:11px;margin:12px 0}.bubble{width:32px;height:32px;flex:0 0 32px;display:grid;place-items:center;background:var(--navy);color:white;border-radius:50%;font-weight:800}
+.question{border:1px solid var(--line);border-radius:12px;padding:14px;margin:12px 0}.question p{margin:0 0 8px;font-weight:700}.question label{font-weight:500;margin:6px 0}.question input{margin-right:7px}
+footer{text-align:center;color:var(--muted);padding:20px 12px;font-size:.9rem}
+@media(max-width:760px){.grid,.three{grid-template-columns:1fr}.card{padding:15px}nav button{flex:1 1 42%}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<span class="tag">Media Pembelajaran Interaktif • Matematika Kelas X SMK</span>
+<h1>Konsep Dasar Vektor dan Operasinya</h1>
+<p>Belajar secara mandiri tentang besar, arah, notasi, representasi geometris, penjumlahan, pengurangan, perkalian skalar, dan perkalian titik (dot product) melalui materi, visualisasi, simulasi, latihan, dan kuis.</p>
+</div></header>
+<main class="wrap">
+<nav aria-label="Menu MPI">
+<button class="active" data-tab="tujuan">1. Tujuan & Konsep</button>
+<button data-tab="representasi">2. Representasi</button>
+<button data-tab="operasi">3. Operasi Vektor</button>
+<button data-tab="simulasi">4. Simulasi</button>
+<button data-tab="latihan">5. Latihan</button>
+<button data-tab="kuis">6. Kuis Akhir</button>
+</nav>
+
+<section id="tujuan" class="panel active">
+<div class="card"><h2>Tujuan Pembelajaran</h2>
+<p>Setelah menggunakan MPI ini, murid diharapkan mampu:</p>
+<ol><li>Menjelaskan konsep dasar vektor yang meliputi besaran, arah, notasi, dan representasi geometris secara mandiri.</li><li>Melakukan operasi aljabar vektor berupa penjumlahan, pengurangan, perkalian dengan skalar, serta perkalian titik dua vektor.</li></ol>
+</div>
+<div class="card"><h2>A. Apa itu vektor?</h2>
+<p><b>Vektor</b> adalah besaran yang memiliki <b>besar (magnitudo) dan arah</b>. Contoh dalam kehidupan sehari-hari adalah perpindahan 5 meter ke timur atau gaya 10 newton ke atas.</p>
+<div class="grid"><div class="stat"><small>Besaran skalar</small><strong>Besar saja</strong><p class="muted">Contoh: massa 4 kg, waktu 10 s, suhu 30°C.</p></div><div class="stat"><small>Besaran vektor</small><strong>Besar dan arah</strong><p class="muted">Contoh: perpindahan 5 m ke timur, kecepatan 20 m/s ke utara.</p></div></div>
+<h3>Unsur penting vektor</h3><ul><li><b>Besar:</b> panjang vektor atau nilai magnitudonya.</li><li><b>Arah:</b> orientasi vektor, misalnya ke kanan, kiri, atas, bawah, atau sudut tertentu.</li><li><b>Titik pangkal:</b> tempat vektor dimulai.</li><li><b>Ujung/panah:</b> menunjukkan arah vektor.</li></ul>
+</div>
+<div class="card"><h2>B. Notasi vektor</h2>
+<p>Vektor dapat ditulis dengan huruf tebal <b>v</b> atau huruf dengan tanda panah di atasnya, misalnya \u2192v. Dalam bentuk komponen dua dimensi:</p>
+<div class="formula"><strong>v = (v<sub>x</sub>, v<sub>y</sub>) = v<sub>x</sub>i + v<sub>y</sub>j</strong></div>
+<p>Di sini, <b>v<sub>x</sub></b> adalah komponen horizontal, <b>v<sub>y</sub></b> komponen vertikal, <b>i</b> vektor satuan arah X, dan <b>j</b> vektor satuan arah Y.</p>
+<p>Jika v = (3, 4), artinya perpindahan 3 satuan ke kanan dan 4 satuan ke atas. Besarnya adalah:</p>
+<div class="formula">|v| = √(3² + 4²) = √25 = <strong>5 satuan</strong></div></div>
+<div class="card"><h2>C. Besar vektor dan arah</h2>
+<div class="formula">Jika v = (v<sub>x</sub>, v<sub>y</sub>), maka<br><strong>|v| = √(v<sub>x</sub>² + v<sub>y</sub>²)</strong></div>
+<p>Sudut vektor terhadap sumbu X positif dapat dicari menggunakan tan θ = v<sub>y</sub>/v<sub>x</sub>. Untuk menentukan kuadran dengan tepat, perhatikan tanda kedua komponen atau gunakan fungsi atan2.</p>
+<p class="muted">Ingat: arah dan tanda komponen penting. Komponen X negatif berarti mengarah ke kiri; komponen Y negatif berarti mengarah ke bawah.</p></div>
+</section>
+
+<section id="representasi" class="panel">
+<div class="card"><h2>Representasi geometris</h2>
+<p>Vektor digambarkan sebagai ruas garis berpanah. Panjang panah mewakili besar vektor menurut skala gambar, sedangkan ujung panah menunjukkan arah.</p>
+<div class="svgbox"><svg viewBox="0 0 560 340" role="img" aria-label="Vektor dari titik asal ke koordinat tiga empat"><defs><marker id="vArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2563eb"/></marker></defs>
+<g stroke="#e2e8f0"><line x1="40" y1="25" x2="40" y2="300"/><line x1="40" y1="25" x2="520" y2="25"/><line x1="88" y1="25" x2="88" y2="300"/><line x1="40" y1="52.5" x2="520" y2="52.5"/><line x1="136" y1="25" x2="136" y2="300"/><line x1="40" y1="80" x2="520" y2="80"/><line x1="184" y1="25" x2="184" y2="300"/><line x1="40" y1="107.5" x2="520" y2="107.5"/><line x1="232" y1="25" x2="232" y2="300"/><line x1="40" y1="135" x2="520" y2="135"/><line x1="280" y1="25" x2="280" y2="300"/><line x1="40" y1="162.5" x2="520" y2="162.5"/><line x1="328" y1="25" x2="328" y2="300"/><line x1="40" y1="190" x2="520" y2="190"/><line x1="376" y1="25" x2="376" y2="300"/><line x1="40" y1="217.5" x2="520" y2="217.5"/><line x1="424" y1="25" x2="424" y2="300"/><line x1="40" y1="245" x2="520" y2="245"/><line x1="472" y1="25" x2="472" y2="300"/><line x1="40" y1="272.5" x2="520" y2="272.5"/><line x1="520" y1="25" x2="520" y2="300"/><line x1="40" y1="300" x2="520" y2="300"/></g>
+<line x1="40" y1="300" x2="530" y2="300" stroke="#64748b" stroke-width="2"/><line x1="40" y1="310" x2="40" y2="18" stroke="#64748b" stroke-width="2"/>
+<line x1="40" y1="300" x2="184" y2="190" stroke="#2563eb" stroke-width="4" marker-end="url(#vArrow)"/><line x1="184" y1="300" x2="184" y2="190" stroke="#15803d" stroke-dasharray="5 4" stroke-width="2"/><line x1="40" y1="190" x2="184" y2="190" stroke="#0f766e" stroke-dasharray="5 4" stroke-width="2"/>
+<text x="190" y="184" fill="#1d4ed8" font-size="16" font-weight="700">v = (3, 4)</text><text x="100" y="322" fill="#0f766e" font-size="14">3 satuan (X)</text><text x="190" y="250" fill="#15803d" font-size="14">4 satuan (Y)</text><text x="518" y="320" fill="#334155">X</text><text x="25" y="22" fill="#334155">Y</text><text x="24" y="317" fill="#334155">O</text>
+</svg></div>
+<p>Vektor v = (3, 4) berawal dari O(0,0) dan berujung di titik (3,4). Komponen X-nya 3 dan komponen Y-nya 4.</p></div>
+<div class="card"><h2>Representasi dengan komponen</h2>
+<div class="grid"><div class="formula">v = (3, 4)</div><div class="formula">v = 3i + 4j</div></div>
+<p>Kedua notasi di atas menyatakan vektor yang sama. Perubahan titik pangkal tidak mengubah vektor bebas selama besar dan arahnya tetap sama.</p></div>
+</section>
+
+<section id="operasi" class="panel">
+<div class="card"><h2>1. Penjumlahan vektor</h2>
+<p>Jika u = (u<sub>x</sub>, u<sub>y</sub>) dan v = (v<sub>x</sub>, v<sub>y</sub>), jumlahkan komponen yang sejenis.</p>
+<div class="formula"><strong>u + v = (u<sub>x</sub> + v<sub>x</sub>, u<sub>y</sub> + v<sub>y</sub>)</strong></div>
+<p><b>Contoh:</b> u = (2, 3), v = (4, 1). Maka u + v = (2+4, 3+1) = <b>(6, 4)</b>.</p>
+</div>
+<div class="card"><h2>2. Pengurangan vektor</h2>
+<div class="formula"><strong>u − v = (u<sub>x</sub> − v<sub>x</sub>, u<sub>y</sub> − v<sub>y</sub>)</strong></div>
+<p><b>Contoh:</b> u = (7, 5), v = (2, 3). Maka u − v = (7−2, 5−3) = <b>(5, 2)</b>.</p>
+<p>Pengurangan juga dapat dipandang sebagai penjumlahan dengan vektor lawan: u − v = u + (−v).</p>
+</div>
+<div class="card"><h2>3. Perkalian vektor dengan skalar</h2>
+<p>Skalar adalah bilangan real. Mengalikan vektor dengan skalar berarti mengalikan setiap komponen vektor dengan bilangan tersebut.</p>
+<div class="formula"><strong>k u = (k u<sub>x</sub>, k u<sub>y</sub>)</strong></div>
+<p><b>Contoh:</b> u = (2, −3), k = 3. Maka 3u = (3×2, 3×−3) = <b>(6, −9)</b>.</p>
+<ul><li>Jika k positif, arah tetap sama (bila k tidak nol).</li><li>Jika k negatif, arah berbalik.</li><li>Jika k = 0, hasilnya vektor nol.</li><li>Besar hasil adalah |k| kali besar vektor awal.</li></ul>
+</div>
+<div class="card"><h2>4. Perkalian titik (dot product)</h2>
+<p>Perkalian titik menghasilkan <b>skalar</b>, bukan vektor. Untuk dua vektor dua dimensi:</p>
+<div class="formula"><strong>u · v = u<sub>x</sub>v<sub>x</sub> + u<sub>y</sub>v<sub>y</sub></strong></div>
+<p><b>Contoh:</b> u = (2, 3), v = (4, 1). Maka u · v = (2×4) + (3×1) = 8 + 3 = <b>11</b>.</p>
+<p>Dalam bentuk sudut, u · v = |u||v| cos θ. Perkalian titik dapat membantu menguji apakah dua vektor tegak lurus: jika u · v = 0 dan kedua vektor tidak nol, keduanya tegak lurus.</p>
+<p class="muted"><b>Catatan istilah:</b> “Perkalian vektor” bisa merujuk pada operasi yang berbeda. MPI ini membahas perkalian skalar dan perkalian titik. Perkalian silang (cross product) biasanya diperkenalkan pada vektor tiga dimensi.</p>
+</div>
+<div class="card"><h2>Ringkasan operasi</h2>
+<div class="grid"><div class="stat"><small>Penjumlahan</small><strong>(a,b)+(c,d)=(a+c,b+d)</strong></div><div class="stat"><small>Pengurangan</small><strong>(a,b)−(c,d)=(a−c,b−d)</strong></div><div class="stat"><small>Skalar</small><strong>k(a,b)=(ka,kb)</strong></div><div class="stat"><small>Dot product</small><strong>(a,b)·(c,d)=ac+bd</strong></div></div></div>
+</section>
+
+<section id="simulasi" class="panel">
+<div class="card"><h2>Simulasi operasi vektor</h2><p>Ubah komponen u dan v untuk melihat hasil operasi secara otomatis.</p>
+<div class="grid"><div>
+<h3>Vektor u</h3><div class="grid"><div><label for="ux">uₓ</label><input type="number" id="ux" value="2" min="-20" max="20"></div><div><label for="uy">uᵧ</label><input type="number" id="uy" value="3" min="-20" max="20"></div></div>
+<h3>Vektor v</h3><div class="grid"><div><label for="vx">vₓ</label><input type="number" id="vx" value="4" min="-20" max="20"></div><div><label for="vy">vᵧ</label><input type="number" id="vy" value="1" min="-20" max="20"></div></div>
+<label for="scalar">Skalar k</label><input type="number" id="scalar" value="3" min="-10" max="10">
+<label for="operation">Pilih operasi</label><select id="operation"><option value="add">Penjumlahan u + v</option><option value="sub">Pengurangan u − v</option><option value="scale">Perkalian skalar k·u</option><option value="dot">Perkalian titik u · v</option></select>
+<button class="btn alt" id="exampleValues" style="margin-top:12px">Kembalikan contoh</button>
+</div><div>
+<div class="three"><div class="stat"><small>Vektor u</small><strong id="outU">(2, 3)</strong></div><div class="stat"><small>Vektor v</small><strong id="outV">(4, 1)</strong></div><div class="stat"><small>Hasil operasi</small><strong id="outResult">(6, 4)</strong></div></div>
+<div class="formula" id="calculation" style="margin-top:12px">u + v = (2+4, 3+1) = (6, 4)</div>
+<div class="svgbox"><svg id="operationSvg" viewBox="0 0 500 360" role="img" aria-label="Grafik vektor u, v dan hasil operasi"></svg></div>
+<p class="muted">Visualisasi menggambarkan vektor u, v, dan hasil operasi yang berbentuk vektor. Untuk dot product, hasilnya berupa skalar sehingga grafik menampilkan u dan v saja.</p>
+</div></div></div>
+</section>
+
+<section id="latihan" class="panel">
+<div class="card"><h2>Latihan mandiri</h2><p>Isikan komponen hasil operasi. Toleransi jawaban ±0,01.</p>
+<div class="question"><p>1. u = (2, 5), v = (3, −1). Hitung u + v.</p><div class="grid"><div><label for="p1x">Komponen X</label><input type="number" id="p1x" step="any"></div><div><label for="p1y">Komponen Y</label><input type="number" id="p1y" step="any"></div></div></div>
+<div class="question"><p>2. u = (8, 4), v = (3, 6). Hitung u − v.</p><div class="grid"><div><label for="p2x">Komponen X</label><input type="number" id="p2x" step="any"></div><div><label for="p2y">Komponen Y</label><input type="number" id="p2y" step="any"></div></div></div>
+<div class="question"><p>3. u = (−2, 4). Hitung −3u.</p><div class="grid"><div><label for="p3x">Komponen X</label><input type="number" id="p3x" step="any"></div><div><label for="p3y">Komponen Y</label><input type="number" id="p3y" step="any"></div></div></div>
+<div class="question"><p>4. u = (2, 3), v = (4, −1). Hitung u · v.</p><label for="p4">Nilai dot product</label><input type="number" id="p4" step="any"></div>
+<button class="btn" id="checkPractice">Periksa jawaban</button><div id="practiceFeedback" aria-live="polite"></div></div>
+</section>
+
+<section id="kuis" class="panel">
+<div class="card"><h2>Kuis akhir</h2><p>Pilih jawaban yang paling tepat. Nilai ditampilkan setelah kuis dikirim.</p>
+<form id="quizForm">
+<div class="question"><p>1. Besaran vektor memiliki …</p><label><input type="radio" name="q1" value="a"> Besar saja</label><label><input type="radio" name="q1" value="b"> Arah saja</label><label><input type="radio" name="q1" value="c"> Besar dan arah</label></div>
+<div class="question"><p>2. Vektor (3, 4) memiliki besar …</p><label><input type="radio" name="q2" value="a"> 7</label><label><input type="radio" name="q2" value="b"> 5</label><label><input type="radio" name="q2" value="c"> 12</label></div>
+<div class="question"><p>3. (2, 3) + (4, 1) = …</p><label><input type="radio" name="q3" value="a"> (6, 4)</label><label><input type="radio" name="q3" value="b"> (2, 2)</label><label><input type="radio" name="q3" value="c"> (8, 3)</label></div>
+<div class="question"><p>4. Jika u = (2, −3), maka 2u = …</p><label><input type="radio" name="q4" value="a"> (4, −6)</label><label><input type="radio" name="q4" value="b"> (4, −3)</label><label><input type="radio" name="q4" value="c"> (2, −6)</label></div>
+<div class="question"><p>5. (1, 2) · (3, 4) = …</p><label><input type="radio" name="q5" value="a"> 7</label><label><input type="radio" name="q5" value="b"> 11</label><label><input type="radio" name="q5" value="c"> (3, 8)</label></div>
+<div class="question"><p>6. Jika u = (7, 5), v = (2, 3), maka u − v = …</p><label><input type="radio" name="q6" value="a"> (9, 8)</label><label><input type="radio" name="q6" value="b"> (5, 2)</label><label><input type="radio" name="q6" value="c"> (5, 8)</label></div>
+<button class="btn green" type="submit">Kirim kuis dan lihat nilai</button></form>
+<div id="quizResult" aria-live="polite"></div><button class="btn alt" id="retryQuiz" style="margin-top:10px">Ulangi kuis</button></div>
+</section>
+</main>
+<footer>MPI Matematika Kelas X SMK • Konsep Dasar Vektor dan Operasinya • File mandiri, tanpa pustaka eksternal</footer>
+<script>
+const $=id=>document.getElementById(id);
+document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));b.classList.add('active');$(b.dataset.tab).classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}));
+const f=n=>Number.isFinite(n)?(Math.abs(n)<0.005?0:n).toFixed(2).replace(/\.00$/,''):'—';
+function drawVectors(svgId,vecs){
+ const svg=$(svgId),cx=250,cy=175,scale=10,colors=['#2563eb','#0f766e','#15803d'];
+ const arrow=(x,y)=>`<polygon points="${x},${y} ${x-7},${y-4} ${x-7},${y+4}" fill="#2563eb"/>`;
+ let s=`<defs>${colors.map((c,i)=>`<marker id="arr${i}" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="${c}"/></marker>`).join('')}</defs>`;
+ s+=Array.from({length:11},(_,i)=>`<line x1="${20+i*46}" y1="15" x2="${20+i*46}" y2="335" stroke="#e5eaf2"/><line x1="20" y1="${15+i*32}" x2="480" y2="${15+i*32}" stroke="#e5eaf2"/>`).join('');
+ s+=`<line x1="20" y1="${cy}" x2="485" y2="${cy}" stroke="#64748b" stroke-width="2"/><line x1="${cx}" y1="340" x2="${cx}" y2="12" stroke="#64748b" stroke-width="2"/><text x="470" y="${cy+19}" fill="#334155">X</text><text x="${cx+7}" y="22" fill="#334155">Y</text>`;
+ vecs.forEach((v,i)=>{if(!v||!Number.isFinite(v[0])||!Number.isFinite(v[1]))return;let x=cx+Math.max(-20,Math.min(20,v[0]))*scale,y=cy-Math.max(-15,Math.min(15,v[1]))*scale,c=colors[i%3];s+=`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="${c}" stroke-width="3.5" marker-end="url(#arr${i%3})"/><text x="${Math.max(22,Math.min(440,x+5))}" y="${Math.max(25,Math.min(325,y-8))}" fill="${c}" font-size="14" font-weight="700">${v[2]||''}</text>`;});
+ svg.innerHTML=s;
+}
+function updateOperation(){
+ const ux=+$('ux').value||0,uy=+$('uy').value||0,vx=+$('vx').value||0,vy=+$('vy').value||0,k=+$('scalar').value||0,op=$('operation').value;
+ $('outU').textContent=`(${f(ux)}, ${f(uy)})`;$('outV').textContent=`(${f(vx)}, ${f(vy)})`;
+ let result,calc,vecs=[[ux,uy,'u'],[vx,vy,'v']];
+ if(op==='add'){result=[ux+vx,uy+vy];calc=`u + v = (${f(ux)}+${f(vx)}, ${f(uy)}+${f(vy)}) = (${f(result[0])}, ${f(result[1])})`;vecs.push([...result,'u+v']);}
+ if(op==='sub'){result=[ux-vx,uy-vy];calc=`u − v = (${f(ux)}−${f(vx)}, ${f(uy)}−${f(vy)}) = (${f(result[0])}, ${f(result[1])})`;vecs.push([...result,'u−v']);}
+ if(op==='scale'){result=[k*ux,k*uy];calc=`${f(k)}u = (${f(k)}×${f(ux)}, ${f(k)}×${f(uy)}) = (${f(result[0])}, ${f(result[1])})`;vecs.push([...result,'ku']);}
+ if(op==='dot'){result=ux*vx+uy*vy;calc=`u · v = (${f(ux)}×${f(vx)}) + (${f(uy)}×${f(vy)}) = ${f(result)}`;}
+ $('outResult').textContent=Array.isArray(result)?`(${f(result[0])}, ${f(result[1])})`:f(result);
+ $('calculation').textContent=calc;drawVectors('operationSvg',vecs);
+}
+['ux','uy','vx','vy','scalar','operation'].forEach(id=>$(id).addEventListener('input',updateOperation));
+$('exampleValues').addEventListener('click',()=>{$('ux').value=2;$('uy').value=3;$('vx').value=4;$('vy').value=1;$('scalar').value=3;$('operation').value='add';updateOperation();});updateOperation();
+$('checkPractice').addEventListener('click',()=>{
+ const checks=[['p1x',5],['p1y',4],['p2x',5],['p2y',-2],['p3x',6],['p3y',-12],['p4',5]];
+ let score=0,lines=[];checks.forEach(([id,ans],i)=>{const val=$(id).value;const ok=val!==''&&Math.abs(Number(val)-ans)<=.01;if(ok)score++;lines.push(`${i+1}. ${ok?'Benar':'Belum tepat'} (jawaban: ${ans})`);});
+ $('practiceFeedback').className='feedback '+(score===7?'ok':'info');$('practiceFeedback').innerHTML=`Skor: ${score}/7 butir komponen<br>${lines.join('<br>')}`;
+});
+$('quizForm').addEventListener('submit',e=>{e.preventDefault();const key={q1:'c',q2:'b',q3:'a',q4:'a',q5:'b',q6:'b'};let score=0;Object.keys(key).forEach(k=>{const a=document.querySelector(`input[name="${k}"]:checked`);if(a&&a.value===key[k])score++;});$('quizResult').className='feedback '+(score>=5?'ok':'info');$('quizResult').innerHTML=`<strong>Nilai: ${Math.round(score/6*100)}/100 (${score}/6 benar)</strong><br>${score===6?'Hebat! Semua jawaban benar.':score>=4?'Bagus. Tinjau kembali materi yang belum dikuasai.':'Pelajari kembali materi dan contoh operasi vektor, lalu ulangi kuis.'}`;});
+$('retryQuiz').addEventListener('click',()=>{$('quizForm').reset();$('quizResult').innerHTML='';$('quizResult').className='';});
+</script>
+</body></html>
